@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible” content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet"
+/>
+
+    <title>REHAANCODES'S WEBSITE</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">REHAANCODES</a>
+        <ul>
+            <li><a href="#" class="active" >Home</a></li>
+            <li><a href="#aboutme" id="btn1">About Me</a></li>
+            <li><a href="#contactus" id="btn2">Contact me</a></li>
+            <li><a href="#socials" id="btn3">Socials</a></li>
+    </header>
+    <section >
+        <img src ="stars.png" id="stars">
+        <img src ="moon.png" id="moon">
+        <img src ="mountains_behind.png" id="mountain_behind">
+        <h2 id="text"> Welcome!</h2> 
+        <a href="#sec" id="btn">Explore</a>
+        <img src ="mountains_front.png" id="mountain_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2 id="sec-typing"></h2>
+        <p>
+            This project was an aim to showcase my evolving skills in web development, particularly in HTML and CSS. I incorporated a stylish and responsive design, offering my viewers an immersive experience.</p>
+            <br><br>
+
+<h3>Key Features:</h3>
+
+<p>The header was made to provide an  easy navigation with links to Home, About Me, Contact Me, and Socials sections.
+<br>
+The most exciting part for me was the Parallax Effect I incorporated :
+<br>
+
+ As you scroll, the background elements  dynamically adjust, creating a visually engaging experience.
+<br>
+This effect was incorporated using JavaScript functions and CSS properties that i recently learned.
+
+
+        </p>
+    </div>
+    <div class="aboutme" id="aboutme">
+        <h2>ABOUT ME</h2>
+        <p id="typing-text"></p> <!-- Typing animation will display here -->
+    </div>
+        
+        
+    </div>
+    <div class="contactus" id="contactus">
+        <div class="contactus" id="contactus">
+          <h2>CONTACT ME</h2>
+            <h3 id="contact-h3-typing"></h3>
+            <h4>Feel Free To Reach Out!</h4>
+           
+        <div class="buttons">
+            <a href="https://www.linkedin.com/in/rehaan-sharma-4b304b250/" target="_blank" class="button connect">
+                Connect
+            </a>
+            <a href="mailto:rehaan@ualberta.ca" class="button message">
+                Message
+            </a>
+        </div>
+
+
+       
+        
+        
+        
+        
+    </div>
+    <div class="socials" id="socials">
+        <h2>SOCIALS</h2>
+        <h3 id="socials-typing"></h3>
+        <div class="media-buttons">
+
+        
+        <a href="https://www.linkedin.com/in/rehaan-sharma-4b304b250/" target="_blank" class="link" style="background: #0077B5">
+            <i class='bx bxl-linkedin'></i>
+
+        </a>
+        <a href="https://github.com/rehaan299" target="_blank" class="link" style="background: #242222">
+            <i class='bx bxl-github' ></i>
+
+        </a>
+        <a href="https://www.youtube.com/channel/UC5pppSIb2pxri-9n7JUhhiA" target="_blank" class="link" style="background: #ff0000">
+            <i class='bx bxl-youtube' ></i>
+
+        </a>
+    </div>
+
+        
+
+        
+        
+        
+        
+    </div>
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountain_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountain_front');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            stars.style.left = value * 0.25  + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.top = value * 0.5 + 'px';
+            
+        })
+        
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to start the typing animation
+            function startTypingAnimation(element, text, typingSpeed) {
+                let i = 0;
+                element.innerHTML = ''; // Clear existing content
+        
+                function typeWriter() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, typingSpeed);
+                    }
+                }
+            
+                typeWriter();
+            }
+            
+            // Intersection Observer options
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+            
+            // Observer callback
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const elementId = entry.target.id;
+                        const element = document.getElementById(elementId);
+                        let text = "";
+                        let typingSpeed = 60; // Adjust the speed as needed
+            
+                        switch(elementId) {
+                            case 'typing-text':
+                                text = "My name is Rehaan Sharma and I am a second-year undergraduate student in Computing Sciences at the University of Alberta.Right now I am on a mission to become a skilled Web Developer and explore every opportunity that comes my way and expand my skill set.What you witness here is my first CSS project that had Javascript integrated in it ,which took me a lot of effort and hard work.I really hope you/re liking what you see.I used new concepts I learned to implement a cool parallax effect as well as a typing animation which I really liked.You can view the source code and my other projects on my GitHub which can be easily accessed (thanks to this cool webpage) by clicking on my Socials button. Beyond making the best websites, I am a fitness enthusiast dedicated to a healthy lifestyle.I am also an online fitness coach, and have been privileged to guide people on transformative weight loss journeys, an experience that has instilled in me a profound work ethic.I would love to connect with you guys, if you like this page ,reach out and we can work on some projects together?(only if I like you,jk).";
+                                 // Your long text for this section
+                                typingSpeed = 20;
+                                break;
+                            case 'socials-typing':
+                                text = "Check out my Socials to view my other projects...";
+                                break;
+                            case 'contact-h3-typing':
+                                text = "Want to collaborate on a project?";
+                                break;
+                            case 'sec-typing':
+                                text = "Welcome to my website!";
+                                typingSpeed = 60;
+                                break;
+                            // Add more cases for other elements as needed
+                        }
+            
+                        startTypingAnimation(element, text, typingSpeed);
+                        observer.unobserve(entry.target); // Stop observing after animation starts
+                    }
+                });
+            }, options);
+            
+            // Add all elements to be observed
+            const elementsToObserve = ['typing-text', 'socials-typing', 'contact-h3-typing', 'sec-typing']; //
+            elementsToObserve.forEach(elementId => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                observer.observe(element);
+                }
+                });
+                });
+                </script>         
+        
+
+    
+            
+</body>
+</html>
